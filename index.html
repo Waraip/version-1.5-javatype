@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JavaType: Code Rush</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+  <section id="menu" class="screen center">
+    <h1>JAVATYPE</h1>
+    <p class="sub">CODE RUSH</p>
+    <p class="muted">Improve your typing skills.</p>
+    <button class="btn primary wide" data-go="setup" data-mode="solo">Start Game</button>
+    <button class="btn wide" data-go="setup" data-mode="battle">Battle Mode (vs NPC)</button>
+    <div class="row"><button class="btn" data-go="info">Instructions</button><button class="btn" data-go="board">Leaderboard</button></div>
+  </section>
+
+  <section id="setup" class="screen center hidden">
+    <h2>Select difficulty</h2>
+    <label class="muted">Your name <input id="name" maxlength="20" value="Player"></label>
+    <p id="setupMsg" class="err"></p>
+    <div class="levels" id="levels"></div>
+    <button class="btn" data-go="menu">Back</button>
+  </section>
+
+  <section id="game" class="screen hidden">
+    <div class="top"><div><b id="gHead"></b><div id="gInfo" class="muted"></div></div>
+      <div class="pills"><span id="wpm" class="pill green">WPM 0</span><span id="clock" class="pill purple">01:00.0</span></div></div>
+    <div id="typer" class="typer"></div>
+    <div class="bottom"><button class="btn" id="gBack">Back</button><span id="gStatus" class="muted"></span><button class="btn primary" id="gSubmit">Submit</button></div>
+  </section>
+
+  <section id="result" class="screen center hidden">
+    <h2 id="rTitle"></h2><p id="rSub" class="muted"></p><p id="rRating" class="rating"></p>
+    <div id="rStats" class="stats"></div>
+    <div class="row"><button class="btn primary" id="rSame">Same difficulty</button><button class="btn" data-go="setup" data-mode="solo">Change difficulty</button><button class="btn" data-go="menu">Main menu</button></div>
+  </section>
+
+  <section id="board" class="screen hidden">
+    <h2>Leaderboard</h2>
+    <div class="row" id="tabs"></div>
+    <div class="tablewrap"><table id="table"></table></div>
+    <button class="btn primary" data-go="menu">Back to menu</button>
+  </section>
+
+  <section id="info" class="screen hidden">
+    <h2>Instructions</h2>
+    <pre class="infotext" id="infoText"></pre>
+    <button class="btn primary" data-go="menu">Back to menu</button>
+  </section>
+
+  <section id="battle" class="screen hidden">
+    <div class="arena">
+      <div class="fighter"><b id="bMe"></b><span id="bMeHp" class="muted"></span><div class="bar"><i id="bMeBar"></i></div><div class="bar thin"><i id="bMeProg" class="p"></i></div></div>
+      <div id="banner" class="banner"></div>
+      <div class="fighter right"><b id="bOpp"></b><span id="bOppHp" class="muted"></span><div class="bar"><i id="bOppBar"></i></div><div class="bar thin"><i id="bOppProg" class="p"></i></div></div>
+    </div>
+    <div id="bHead" class="muted"></div>
+    <div id="bTyper" class="typer"></div>
+    <div class="bottom"><button class="btn" id="bQuit">Quit</button><span id="bStatus" class="muted"></span><button class="btn primary hidden" id="bAgain">Rematch</button></div>
+  </section>
+</main>
+<script src="script.js"></script>
+</body>
+</html>
